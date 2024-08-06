@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: hsl(from #f9e2e2 h s l);
+    background-color: hsl(from #07071d h s l);
+    padding: 3rem 6rem;
+}
+
+.container {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+main {
+    max-width: 1000px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-block-end: 4rem;
+}
+
+h1,
+h2 {
+    font-weight: 600;
+}
+
+.description {
+    margin-block-start: 2rem;
+    margin-block-end: 4rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-block-end: 2rem;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+.gallery-panel {
+    flex: 1;
+    aspect-ratio: 1 / 1.5;
+    cursor: pointer;
+    transition: 0.4s;
+    -webkit-box-reflect: below 4px
+        linear-gradient(transparent, rgba(0, 0, 0, 0.15));
+}
+
+.gallery-panel img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1.5;
+    object-fit: cover;
+    -webkit-transform: scale(0.999);
+    transform: scale(0.999);
+    border-radius: 5%;
+    pointer-events: auto;
+}
+
+.gallery-panel:hover {
+    transform: scale(1.4);
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%) opacity(100%) saturate(100%);
+    -webkit-box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.5);
+}
+
+.gallery:hover > :not(:hover) {
+    margin-inline: -1.5rem;
+    transform: perspective(400px) rotateY(30deg) scale(0.8);
+    -webkit-filter: brightness(60%);
+    filter: brightness(60%) opacity(60%) saturate(60%);
+}
+
+.gallery-panel:hover ~ .gallery-panel {
+    transform: perspective(400px) rotateY(-30deg) scale(0.8);
+}
+
+a {
+    color: hsl(from #f48686 h s l);
+    text-decoration: none;
+}
+
+a:hover {
+    color: hsl(from #69dae2 h s l / 0.8);
+    text-decoration: underline 1px #69dae2 wavy;
+}
+
+a:active {
+    color: hsl(from #f16363 h s l / 0.8);
+}
+
+a:visited {
+    color: hsl(from #f05be4 h s l);
+    font-weight: semibold;
+}
+
+footer {
+    margin-block-start: 4rem;
+    text-align: center;
+}
